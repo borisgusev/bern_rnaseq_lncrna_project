@@ -67,7 +67,8 @@ readr::write_csv(integrated, 'integrated_analysis.csv')
 
 top_candidates <- integrated %>%
   arrange(desc(numTrue), qval) %>%
-  head(40)
+  distinct(gene_id) %>%
+  head(20)
 readr::write_csv(top_candidates, 'top_novel_candidates.csv')
 
   
